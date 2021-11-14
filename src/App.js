@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Accordion from "./components/Accordion";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const accordionItems = [
+  {
+    title: "What project is this?",
+    content: "This is an Accordion implementation",
+  },
+  {
+    title: "Why are you building this?",
+    content: "This is just a fun app for react practice",
+  },
+  {
+    title: "How does it work?",
+    content:
+      "It works by starting the project and opening/closing this accordion",
+  },
+];
+const App = () => {
+  return <Accordion items={accordionItems} />;
+};
 
 export default App;
