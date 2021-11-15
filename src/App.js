@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Dropdown from "./components/Dropdown";
+import Translate from "./components/Translate";
 
 const accordionItems = [
   {
@@ -24,21 +25,10 @@ const colorOptions = [
 ];
 const App = () => {
   const [selectedOption, setSelectedOption] = useState(colorOptions[0]);
-  const [showDropdown, setShowDropdown] = useState(true);
 
   return (
     <div>
-      <button onClick={() => setShowDropdown(!showDropdown)}>
-        {" "}
-        Toggle Dropdown{" "}
-      </button>
-      {showDropdown ? (
-        <Dropdown
-          selectedOption={selectedOption}
-          onSelectedChange={setSelectedOption}
-          options={colorOptions}
-        />
-      ) : null}
+      <Translate />
     </div>
   );
 };
