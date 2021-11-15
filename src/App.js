@@ -1,5 +1,5 @@
-import React from "react";
-import Accordion from "./components/Accordion";
+import React, { useState } from "react";
+import Dropdown from "./components/Dropdown";
 
 const accordionItems = [
   {
@@ -16,8 +16,31 @@ const accordionItems = [
       "It works by starting the project and opening/closing this accordion",
   },
 ];
+
+const colorOptions = [
+  { label: "The color Red", value: "red" },
+  { label: "The color Blue", value: "blue" },
+  { label: "A shade of Green", value: "green" },
+];
 const App = () => {
-  return <Accordion items={accordionItems} />;
+  const [selectedOption, setSelectedOption] = useState(colorOptions[0]);
+  const [showDropdown, setShowDropdown] = useState(true);
+
+  return (
+    <div>
+      <button onClick={() => setShowDropdown(!showDropdown)}>
+        {" "}
+        Toggle Dropdown{" "}
+      </button>
+      {showDropdown ? (
+        <Dropdown
+          selectedOption={selectedOption}
+          onSelectedChange={setSelectedOption}
+          options={colorOptions}
+        />
+      ) : null}
+    </div>
+  );
 };
 
 export default App;
