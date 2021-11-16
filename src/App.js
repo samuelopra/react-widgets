@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Dropdown from "./components/Dropdown";
+import Accordion from "./components/Accordion";
 import Translate from "./components/Translate";
+import Search from "./components/Search";
+import Route from "./components/Route";
+import Header from "./components/Header";
 
 const accordionItems = [
   {
@@ -28,7 +32,24 @@ const App = () => {
 
   return (
     <div>
-      <Translate />
+      <Header />
+      <Route path="/">
+        <Accordion items={accordionItems}></Accordion>
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown
+          options={colorOptions}
+          selectedOption={selectedOption}
+          onSelectedChange={setSelectedOption}
+          labelText="Select a Color"
+        ></Dropdown>
+      </Route>
+      <Route path="/list">
+        <Search />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
 };
